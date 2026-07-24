@@ -14,7 +14,7 @@ vi script.sh
 
 #!/bin/bash
 
-for i in ${seq 1 65535); do
+for i in $(seq 1 65535); do
 	knock localhost "$i"
 	if curl -s --fail  localhost:80 2> /dev/null; then
 		echo "Accepted on port ${i}"
@@ -22,7 +22,7 @@ for i in ${seq 1 65535); do
 	fi
 done
 
-echo $(curl localhost)) | md5sum
+echo $(curl localhost) | md5sum
 
 ------
 
